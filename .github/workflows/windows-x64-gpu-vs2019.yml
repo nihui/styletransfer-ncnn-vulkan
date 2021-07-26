@@ -23,7 +23,7 @@ jobs:
         Remove-Item .\VulkanSDK\Demos, .\VulkanSDK\glslang, .\VulkanSDK\Samples, .\VulkanSDK\shaderc, .\VulkanSDK\spirv-tools, .\VulkanSDK\Third-Party, .\VulkanSDK\Tools, .\VulkanSDK\Tools32 -Recurse
     - name: build
       run: |
-        Invoke-WebRequest -Uri https://github.com/nihui/opencv-mobile/releases/download/v12/opencv-mobile-4.5.3-windows-vs2019.zip -OutFile opencv-mobile-4.5.3-windows-vs2019.zip
+        Invoke-WebRequest -Uri https://github.com/nihui/opencv-mobile/releases/download/v13/opencv-mobile-4.5.3-windows-vs2019.zip -OutFile opencv-mobile-4.5.3-windows-vs2019.zip
         Invoke-WebRequest -Uri https://github.com/Tencent/ncnn/releases/download/20210720/ncnn-20210720-windows-vs2019.zip -OutFile ncnn-20210720-windows-vs2019.zip
         7z x ./opencv-mobile-4.5.3-windows-vs2019.zip
         7z x ./ncnn-20210720-windows-vs2019.zip
