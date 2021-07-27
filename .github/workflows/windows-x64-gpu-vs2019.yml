@@ -31,3 +31,15 @@ jobs:
         mkdir build; cd build
         cmake ..
         cmake --build . --config Release -j 2
+
+    - name: package
+      run: |
+        mkdir styletransfer-ncnn-vulkan
+        Copy-Item -Verbose -Path "build\Release\styletransfer-ncnn-vulkan.exe" -Destination "styletransfer-ncnn-vulkan"
+        Copy-Item -Verbose -Path "C:\windows\system32\vcomp140.dll" -Destination "styletransfer-ncnn-vulkan"
+        7z a -r styletransfer-ncnn-vulkan.zip styletransfer-ncnn-vulkan
+    - name: upload
+      uses: actions/upload-artifact@v2
+      with:
+        name: styletransfer-ncnn-vulkan
+        path: styletransfer-ncnn-vulkan.zip
