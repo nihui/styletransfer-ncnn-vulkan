@@ -69,11 +69,11 @@ int main(int argc, char** argv)
         ncnn::Option opt;
         opt.use_vulkan_compute = true;
 
-        ncnn::Net styletransfernet[5];
+        ncnn::Net styletransfernet[4];
 
         // load
-        const char* model_paths[5] = {"candy.bin", "mosaic.bin", "pointilism.bin", "rain_princess.bin", "udnie.bin"};
-        for (int i = 0; i < 5; i++)
+        const char* model_paths[4] = {"candy.bin", "rain_princess.bin", "udnie.bin", "starrynight.bin"};
+        for (int i = 0; i < 4; i++)
         {
             styletransfernet[i].opt = opt;
 
@@ -85,7 +85,7 @@ int main(int argc, char** argv)
 
         // process and save
         #pragma omp parallel for num_threads(2)
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < 4; i++)
         {
             cv::Mat outbgr;
             styletransfer(styletransfernet[i], bgr, outbgr);
